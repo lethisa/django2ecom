@@ -1,7 +1,24 @@
-{% comment %} {{ object_list }} {% endcomment %}
+{% extends "base.html" %}
 
-{% for obj in object_list %}
+{% block content %}
+    <div class="container">
+        <div class="row">
 
-<a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a>
+        {% for obj in object_list %}
+            <div class="col">
+                <!-- {{ forloop.counter }} -->
+                {% include "products/snippets/card.html" with instance=obj %}
+                <!-- <a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> -->
+                
+                {% if forloop.counter|divisibleby:3 %}
+                    </div></div><div class="row">
+                        <div class="col-12"><hr/></div>
+                {% else %}
+                    </div>
+                {% endif %}
+            
+        {% endfor %}
 
-{% endfor %}
+        </div>
+    </div>
+{% endblock content %}

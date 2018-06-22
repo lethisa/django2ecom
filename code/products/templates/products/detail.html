@@ -1,7 +1,17 @@
-{{ object.title }}
+{% extends "base.html" %}
 
-{{ object.description }}
-
-{% if object.image %}
-    <img src='{{ object.image.url }}' class="img-fluid" /> 
-{% endif %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{ object.title }}</h1>
+            {{ object.timestamp | timesince }} ago
+            <!-- <h3>{{ "some title" | title}}</h3> -->
+            {{ object.description | linebreaks}} 
+            {% if object.image %}
+                <img src='{{ object.image.url }}' class="img-fluid" /> 
+            {% endif %} 
+        </div>
+    </div>
+</div>
+{% endblock content %}
