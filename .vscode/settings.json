@@ -1,2 +1,7 @@
 {
+    "python.pythonPath": "C:\\wamp64\\www\\django2ecom\\Scripts",
+
+    "python.linting.pep8Enabled": true,
+    "python.linting.pylintPath": "C:\\wamp64\\www\\django2ecom\\Scripts\\pylint",
+    "python.linting.pylintEnabled": true
 }
